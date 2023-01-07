@@ -26,7 +26,7 @@ jobs:
       uses: docker/metadata-action@v4
       with:
         # images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-        images: undancer/ddrecorder
+        images: s9r0ut/ddrecorder
     - name: Build and push Docker image
       uses: docker/build-push-action@v3
       with:
