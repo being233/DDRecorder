@@ -41,6 +41,11 @@ class BiliLiveRecorder(BiliLive):
                 for chunk in resp.iter_content(chunk_size=1024):
                     if chunk:
                         f.write(chunk)
+                        if not self.live_status:
+                        live_count += 1
+                        # 100MB
+                    if live_count > 300000:
+                        raise Exception(f'{self.room_id} is not live anymore.')
         except Exception as e:
             logging.error(self.generate_log(
                 'Error while recording:' + str(e)))
